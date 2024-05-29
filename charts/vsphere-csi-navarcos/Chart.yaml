@@ -1,0 +1,9 @@
+apiVersion: v2
+name: vsphere-csi-navarcos
+description: A Helm chart for vSphere CSI Driver
+
+type: application
+
+version: 3.0.4
+
+appVersion: "v3.0.1"

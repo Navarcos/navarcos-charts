@@ -1,0 +1,13 @@
+csiConfig: |-
+  [Global]
+  cluster-id = "<cluster-id>"
+
+  [VirtualCenter "<IP or FQDN>"]
+  insecure-flag = "true"
+  user = "<username>"
+  password = "<password>"
+  port = "<port>"
+  datacenters = "<datacenter1-path>, <datacenter2-path>, ..."
+
+csiController:
+  replicas: 3
