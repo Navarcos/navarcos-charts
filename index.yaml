@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  vsphere-csi-navarcos:
+  - apiVersion: v2
+    appVersion: v3.0.1
+    created: "2024-05-29T16:05:46.128317028Z"
+    description: A Helm chart for vSphere CSI Driver
+    digest: 8ef160ee5fc10c3cac0940fdb025b7ad9b0ca862f236c2401c220796cec014b4
+    name: vsphere-csi-navarcos
+    type: application
+    urls:
+    - https://github.com/ActivaDigital-it/navarcos-charts/releases/download/vsphere-csi-navarcos-3.0.4/vsphere-csi-navarcos-3.0.4.tgz
+    version: 3.0.4
+generated: "2024-05-29T16:05:46.128323189Z"
