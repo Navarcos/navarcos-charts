@@ -9,6 +9,6 @@ entries:
     name: vsphere-csi-navarcos
     type: application
     urls:
-    - https://github.com/ActivaDigital-it/navarcos-charts/releases/download/vsphere-csi-navarcos-3.0.4/vsphere-csi-navarcos-3.0.4.tgz
+    - https://github.com/Navarcos/navarcos-charts/releases/download/vsphere-csi-navarcos-3.0.4/vsphere-csi-navarcos-3.0.4.tgz
     version: 3.0.4
 generated: "2024-05-29T16:05:46.128323189Z"
