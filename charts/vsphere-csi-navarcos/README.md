@@ -13,7 +13,7 @@
 Namespace **MUST** be `vmware-system-csi`
 
 ```yaml
-helm upgrade vmware-csi --wait --install --namespace vmware-system-csi --create-namespace ./
+helm upgrade vmware-csi --wait --install --namespace vmware-system-csi --create-namespace navarcos/vmware-csi
 ```
 
 ## Original template
