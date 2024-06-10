@@ -1,0 +1,9 @@
+apiVersion: v2
+name: tigera-crds-navarcos
+description: tigera-crds
+
+type: application
+
+version: 3.26.4
+
+appVersion: "v3.26.4"
