@@ -18,7 +18,7 @@ helm upgrade vmware-csi --wait --install --namespace vmware-system-csi --create-
 
 ## Original template
 
-The original template is sourced from 
+The original template is sourced from:
 
 <https://github.com/kubernetes-sigs/vsphere-csi-driver/tree/VERSION/manifests/vanilla>
 

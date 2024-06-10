@@ -1,0 +1,14 @@
+apiVersion: v2
+name: tigera-operator-navarcos
+description: tigera-operator
+
+type: application
+
+version: 3.26.4
+
+appVersion: "v3.26.4"
+
+dependencies:
+- name: tigera-operator
+  version: "v3.26.4"
+  repository: "https://projectcalico.docs.tigera.io/charts"
