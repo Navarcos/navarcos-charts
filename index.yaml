@@ -1,5 +1,31 @@
 apiVersion: v1
 entries:
+  tigera-crds-navarcos:
+  - apiVersion: v2
+    appVersion: v3.26.4
+    created: "2024-06-10T15:10:35.446668236Z"
+    description: tigera-crds
+    digest: 0a31c842c0af37694d8cfbd305279aad132725c74673cc1c9a788696cbd5a231
+    name: tigera-crds-navarcos
+    type: application
+    urls:
+    - https://github.com/Navarcos/navarcos-charts/releases/download/tigera-crds-navarcos-3.26.4/tigera-crds-navarcos-3.26.4.tgz
+    version: 3.26.4
+  tigera-operator-navarcos:
+  - apiVersion: v2
+    appVersion: v3.26.4
+    created: "2024-06-10T15:10:35.616770471Z"
+    dependencies:
+    - name: tigera-operator
+      repository: https://projectcalico.docs.tigera.io/charts
+      version: v3.26.4
+    description: tigera-operator
+    digest: b243e2c7ad8e6013f9827a02659fafe28577330a0c7cd9b6c1a3f260fc6a5817
+    name: tigera-operator-navarcos
+    type: application
+    urls:
+    - https://github.com/Navarcos/navarcos-charts/releases/download/tigera-operator-navarcos-3.26.4/tigera-operator-navarcos-3.26.4.tgz
+    version: 3.26.4
   vsphere-csi-navarcos:
   - apiVersion: v2
     appVersion: v3.0.1
@@ -11,4 +37,4 @@ entries:
     urls:
     - https://github.com/Navarcos/navarcos-charts/releases/download/vsphere-csi-navarcos-3.0.4/vsphere-csi-navarcos-3.0.4.tgz
     version: 3.0.4
-generated: "2024-05-29T16:05:46.128323189Z"
+generated: "2024-06-10T15:10:35.794499826Z"
