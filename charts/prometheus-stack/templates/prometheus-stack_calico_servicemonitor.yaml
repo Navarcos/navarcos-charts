@@ -1,0 +1,68 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: calico-node
+  name: calico-node-metrics-svc
+  namespace: calico-system
+spec:
+  clusterIP: None
+  selector:
+    k8s-app: calico-node
+  ports:
+  - name: felix-metrics-port
+    port: 9091
+    targetPort: 9091
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: calico-typha
+  name: calico-typha-metrics-svc
+  namespace: calico-system
+spec:
+  clusterIP: None
+  selector:
+    k8s-app: calico-typha
+  ports:
+  - name: typha-metrics-port
+    port: 9093
+    targetPort: 9093
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prometheus-calico-node-monitor
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      k8s-app: calico-node
+  namespaceSelector:
+    matchNames:
+    - calico-system
+  endpoints:
+  - port: felix-metrics-port
+    interval: 5s
+    scrapeTimeout: 5s
+    honorLabels: true
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prometheus-calico-typha-monitor
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      k8s-app: calico-typha
+  namespaceSelector:
+    matchNames:
+    - calico-system
+  endpoints:
+  - port: typha-metrics-port
+    interval: 5s
+    scrapeTimeout: 5s
+    honorLabels: true

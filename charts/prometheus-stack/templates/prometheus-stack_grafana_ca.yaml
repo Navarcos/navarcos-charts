@@ -1,0 +1,9 @@
+{{- if .Values.oidcCA }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: navarcos-ca
+  namespace: {{ .Release.Namespace }}
+data:
+  navarcos-ca.crt: |{{ .Values.oidcCA | trim | nindent 4 }}
+{{- end }}

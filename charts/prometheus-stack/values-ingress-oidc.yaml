@@ -1,0 +1,38 @@
+kube-prometheus-stack:
+  grafana:
+    ingress:
+      enabled: true
+      ingressClassName: nginx-internal
+      annotations:
+        cert-manager.io/cluster-issuer: navarcos-ca-internal
+        nginx.ingress.kubernetes.io/backend-protocol: HTTP
+        nginx.ingress.kubernetes.io/service-upstream: 'true'      
+      labels: {}
+      hosts:
+      - grafana.example.com
+      path: /
+      tls:
+      - secretName: grafana.example.com-tls
+        hosts:
+        - grafana.example.com
+    grafana.ini:
+      server:
+        domain: grafana.example.com
+        root_url: https://grafana.example.com/
+      auth.generic_oauth:
+        enabled: true
+        name: Navarcos Keycloak
+        allow_sign_up: true
+        client_id: tenant-cluster
+        client_secret: 0123456789ABCDEFG
+        scopes: openid email profile roles
+        email_attribute_path: email
+        login_attribute_path: preferred_username
+        name_attribute_path: name
+        auth_url: https://keycloak.example.com/realms/tenant/protocol/openid-connect/auth
+        token_url: https://keycloak.example.com/realms/tenant/protocol/openid-connect/token
+        api_url: https://keycloak.example.com/realms/tenant/protocol/openid-connect/userinfo
+        role_attribute_path: "contains(groups[*], 'tenant-cluster_admin') && 'GrafanaAdmin' || contains(groups[*], 'tenant-cluster_owner') && 'Editor' || contains(groups[*], 'tenant-cluster_developer') && 'Viewer'"
+        allow_assign_grafana_admin: true
+        role_attribute_strict: true
+        # tls_client_ca: /etc/grafana/ssl/navarcos-ca.crt

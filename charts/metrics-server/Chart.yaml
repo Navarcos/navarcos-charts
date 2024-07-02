@@ -1,0 +1,14 @@
+apiVersion: v2
+name: metrics-server-navarcos
+description: metrics-server
+
+type: application
+
+version: 3.11.0
+
+appVersion: "0.6.4"
+
+dependencies:
+- name: metrics-server
+  version: "3.11.0"
+  repository: "https://kubernetes-sigs.github.io/metrics-server/"

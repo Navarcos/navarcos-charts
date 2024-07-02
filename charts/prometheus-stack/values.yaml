@@ -1,0 +1,111 @@
+# Grafana admin passwortd is saved in `<namespace>/grafana-admin` Secret
+adminUsername: null
+adminPassword: null
+# CA Certificate for OIDC authentication
+oidcCA:
+# oidcCA: |
+#   -----BEGIN CERTIFICATE-----
+#   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#   -----END CERTIFICATE-----
+
+kube-prometheus-stack:
+
+  crds:
+    enabled: false
+
+  defaultRules:
+    create: true
+    rules:
+      alertmanager: true
+      etcd: true
+      configReloaders: true
+      general: true
+      k8s: true
+      kubeApiserverAvailability: true
+      kubeApiserverBurnrate: true
+      kubeApiserverHistogram: true
+      kubeApiserverSlos: true
+      kubelet: true
+      kubeProxy: true
+      kubePrometheusGeneral: true
+      kubePrometheusNodeRecording: true
+      kubernetesApps: true
+      kubernetesResources: true
+      kubernetesStorage: true
+      kubernetesSystem: true
+      kubeScheduler: true
+      kubeStateMetrics: true
+      network: true
+      node: true
+      nodeExporterAlerting: true
+      nodeExporterRecording: true
+      prometheus: true
+      prometheusOperator: true
+      windows: false
+
+  global:
+    rbac:
+      create: true
+      createAggregateClusterRoles: true
+      pspEnabled: false
+      pspAnnotations: {}
+
+  alertmanager:
+    enabled: true
+    alertmanagerSpec:
+      logFormat: json
+
+  prometheusOperator:
+    enabled: true
+    hostNetwork: false
+
+  grafana:
+    # Use an existing secret for the admin user.
+    admin:
+      ## Name of the secret. Can be templated.
+      existingSecret: "grafana-admin"
+      userKey: admin-user
+      passwordKey: admin-password
+    serviceMonitor:
+      labels:
+        release: "prometheus"
+
+  prometheus:
+    enabled: true
+    podDisruptionBudget:
+      enabled: false
+    prometheusSpec:
+      scrapeInterval: 60s
+      retention: 10d
+      retentionSize: 9GiB
+      replicas: 1
+      shards: 1
+      logLevel: info
+      logFormat: json
+      podMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      probeSelectorNilUsesHelmValues: false
+      ignoreNamespaceSelectors: false
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi
+
+  kubeControllerManager:
+    enabled: false
+
+  kubeEtcd:
+    enabled: false
+
+  kubeScheduler:
+    enabled: false
+
+  kubeProxy:
+    enabled: true
+    service:
+      enabled: true
+      selector:
+        k8s-app: kube-proxy
