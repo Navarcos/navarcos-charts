@@ -1,0 +1,7 @@
+metrics-server:
+  defaultArgs:
+  - --cert-dir=/tmp
+  - --kubelet-preferred-address-types=InternalIP
+  - --kubelet-insecure-tls
+  - --kubelet-use-node-status-port
+  - --metric-resolution=15s
