@@ -1,5 +1,46 @@
 apiVersion: v1
 entries:
+  metrics-server-navarcos:
+  - apiVersion: v2
+    appVersion: 0.6.4
+    created: "2024-07-02T14:02:19.690643624Z"
+    dependencies:
+    - name: metrics-server
+      repository: https://kubernetes-sigs.github.io/metrics-server/
+      version: 3.11.0
+    description: metrics-server
+    digest: a64ca98f23e258ac06457fd5dfc2307150345e138e19f3c1105b32d84002ce11
+    name: metrics-server-navarcos
+    type: application
+    urls:
+    - https://github.com/Navarcos/navarcos-charts/releases/download/metrics-server-navarcos-3.11.0/metrics-server-navarcos-3.11.0.tgz
+    version: 3.11.0
+  prometheus-crds-navarcos:
+  - apiVersion: v2
+    appVersion: v50.3.1
+    created: "2024-07-02T14:02:19.817440961Z"
+    description: prometheus-stack CRDS
+    digest: 42ad5887526a6f8c661c85d3307e0ed37718f63c995ad6febaf20536f2874142
+    name: prometheus-crds-navarcos
+    type: application
+    urls:
+    - https://github.com/Navarcos/navarcos-charts/releases/download/prometheus-crds-navarcos-50.3.1/prometheus-crds-navarcos-50.3.1.tgz
+    version: 50.3.1
+  prometheus-stack-navarcos:
+  - apiVersion: v2
+    appVersion: v0.67.1
+    created: "2024-07-02T14:02:19.967741444Z"
+    dependencies:
+    - name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 50.3.1
+    description: prometheus-stack
+    digest: 927b9e5ff1773d913b17f695e0888b5f39a1d24bf63008636716a03433cbbf57
+    name: prometheus-stack-navarcos
+    type: application
+    urls:
+    - https://github.com/Navarcos/navarcos-charts/releases/download/prometheus-stack-navarcos-50.3.1/prometheus-stack-navarcos-50.3.1.tgz
+    version: 50.3.1
   tigera-crds-navarcos:
   - apiVersion: v2
     appVersion: v3.26.4
@@ -37,4 +78,4 @@ entries:
     urls:
     - https://github.com/Navarcos/navarcos-charts/releases/download/vsphere-csi-navarcos-3.0.4/vsphere-csi-navarcos-3.0.4.tgz
     version: 3.0.4
-generated: "2024-06-10T15:10:35.794499826Z"
+generated: "2024-07-02T14:02:19.96775018Z"
